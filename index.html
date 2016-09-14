@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="EarthSoftDemo">
+
+<head>
+    <meta charset="utf-8">
+    <title>Letter Breakdown</title>
+    <link rel="icon" href="https://cdn2.iconfinder.com/data/icons/website-icons/512/Website_Code-512.png" type="image/x-icon">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body ng-controller="mainCtrl">
+
+    <section id="mainSection">
+        <section class="flexes">
+            <textarea id="userInputArea" ng-model="userInput" ng-change="analyze(userInput, auto)"></textarea>
+
+            <section id="secPOS">
+                <button class="Button" ng-click="analyze(userInput, true)">Calculate</button>
+                <button class="Button" ng-click="userInput = ''; analyze(userInput, true)">Clear</button>
+                <span id="checkLabel">Auto-Calculate</span>
+                <input id="autoCheck" type="checkbox" ng-model="auto" ng-change="analyze(userInput, true)"/>
+            </section>
+        </section>
+
+        <section class="flexes">
+            <section id="letterPos">
+                <span class="lettersSpan" ng-repeat="(key, value) in letters">
+                {{key.toUpperCase()}} : {{value}}
+                </span>
+            </section>
+        </section>
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/mainCtrl.js"></script>
+
+</body>
+
+</html>
